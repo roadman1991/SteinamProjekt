@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Admin-Tool &#8212; Dr. Watson und Datenbank 1 Dokumentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="top" title="Dr. Watson und Datenbank 1 Dokumentation" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Stichwortverzeichnis"
+             accesskey="I">Index</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">Dr. Watson und Datenbank 1 Dokumentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Inhalt</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Admin-Tool</a><ul>
+<li><a class="reference internal" href="#datenanbindung-unter-net">Datenanbindung unter .NET</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>Diese Seite</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/admin.txt"
+            rel="nofollow">Quellcode anzeigen</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Schnellsuche</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Los" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="admin-tool">
+<h1>Admin-Tool<a class="headerlink" href="#admin-tool" title="Link zu dieser Überschrift">¶</a></h1>
+<p>Ein UseCase-Diagramm zum bisherigen Verlauf könnte wie folgt aussehen.</p>
+<img alt="_images/UC_Admin.png" src="_images/UC_Admin.png" />
+<div class="section" id="datenanbindung-unter-net">
+<h2>Datenanbindung unter .NET<a class="headerlink" href="#datenanbindung-unter-net" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Unabhängig von der verwendeten Programmiersprache müssen für eine Datenbankverbindung folgende Informationen vorhanden sein.</p>
+<ul class="simple">
+<li>IP-Adresse/Name des Datenbank-Servers</li>
+<li>Die Definition des jeweiligen SQL-Befehl</li>
+<li>Die Ausführung des jeweiligen Befehls</li>
+<li>Die Verwaltung der zurückgelieferten Ergebnisse</li>
+<li>Die Anzeige der Ergebnisse in besonderen Controls</li>
+</ul>
+<p>Innerhalb des .NET-Frameworks werden diese Informationen durch Objekte, deren Methoden sowie entsprechende Steuerelemente.</p>
+<p>Weiterhin muss der entsprechende Datenbank-Treiber eingebunden werden.</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1">#Bibliothek einbinden</span>
+<span class="o">[</span>void<span class="o">][</span>system.reflection.Assembly<span class="o">]</span>::LoadFrom<span class="o">(</span><span class="s2">&quot;C:\Program Files (x86)\MySQL\MySQL Connector Net 6.6.5\Assemblies\v2.0\MySql.Data.dll&quot;</span><span class="o">)</span><span class="p">;</span>
+
+<span class="c1">#Erste Einrichtung der Datenbankverbindung</span>
+<span class="nv">$connstring</span> <span class="o">=</span> <span class="s2">&quot;Server=localhost;Uid=&#39;root&#39;;Pwd=&#39;&#39;;Database=drwatson&quot;</span><span class="p">;</span>
+<span class="nv">$con</span> <span class="o">=</span> New-Object Mysql.Data.MysqlClient.MysqlConnection<span class="p">;</span>
+<span class="nv">$con</span>.ConnectionString <span class="o">=</span> <span class="nv">$connstring</span><span class="p">;</span>
+<span class="nv">$DataSet</span> <span class="o">=</span> New-Object System.Data.DataSet
+
+
+<span class="c1">############################################################################</span>
+<span class="c1">#Neu: Dataadapter muss bereits hier erzeugt werden, da bei Änderungen etc. auf diesen zurückgegriffen werden</span>
+<span class="c1">#muss, damit das dann später benutzte Commandobjekt darauf zugreifen kann.</span>
+<span class="c1">#Siehe: file:///C:/Fp/OpenBooks/C%20Sharp/Visual%20C%20Sharp%202012/1997_35_001.html#dodtp44f9b504-b660-4f2e-bd26-072f4a498332</span>
+
+<span class="nv">$SqlAdapter</span> <span class="o">=</span> New-Object MySql.Data.MySqlClient.MySqlDataAdapter
+
+
+
+<span class="c1">#Verbindung öffnen</span>
+<span class="k">function</span> verbindungOeffnen<span class="o">()</span>
+<span class="o">{</span>
+        <span class="nv">$con</span>.Open<span class="o">()</span><span class="p">;</span>
+        Write-Host <span class="s2">&quot;Datenbankverbindung geöffnet&quot;</span>
+<span class="o">}</span>
+
+<span class="c1">#Verbindung schließen</span>
+<span class="k">function</span> verbindungschliessen<span class="o">()</span>
+<span class="o">{</span>
+        <span class="nv">$con</span>.Close<span class="o">()</span><span class="p">;</span>
+        Write-Host <span class="s2">&quot;Datenbankverbindung geschlossen&quot;</span>
+<span class="o">}</span>
+
+<span class="c1">#Computerdaten besorgen</span>
+<span class="k">function</span> getReportModel<span class="o">()</span>
+<span class="o">{</span>
+        <span class="c1">#Verbindung öffnen</span>
+        verbindungOeffnen
+
+        <span class="c1">#SQL-Statement eingeben</span>
+        <span class="nv">$SqlQuery</span> <span class="o">=</span> <span class="s2">&quot;select * from tbl_report&quot;</span>
+
+        <span class="c1">#Commandobjekt anlegen und Connectionobjekt sowie Abfrage zuordnen</span>
+        <span class="nv">$SqlCmd</span> <span class="o">=</span> New-Object MySql.Data.MySqlClient.MySqlCommand<span class="p">;</span>
+        <span class="nv">$SqlCmd</span>.CommandText <span class="o">=</span> <span class="nv">$SqlQuery</span>
+        <span class="nv">$SqlCmd</span>.Connection <span class="o">=</span> <span class="nv">$con</span>
+
+        <span class="c1">#Datenadaptar instantiieren und Commandreferenz zuweisen</span>
+        <span class="nv">$SqlAdapter</span>.SelectCommand <span class="o">=</span> <span class="nv">$SqlCmd</span>
+
+        <span class="c1">#Dataset leeren, sonst werden die alten Daten noch angezeigt</span>
+        <span class="nv">$DataSet</span>.Reset<span class="o">()</span>
+
+        <span class="c1">#Dataset instantiieren und füllen lassen</span>
+        <span class="nv">$SqlAdapter</span>.Fill<span class="o">(</span><span class="nv">$DataSet</span><span class="o">)</span>
+
+        <span class="c1">#Verbindung schließen</span>
+        verbindungSchliessen
+<span class="o">}</span>
+
+
+
+<span class="k">function</span> updateDatenbankModel<span class="o">()</span>
+<span class="o">{</span>
+        verbindungOeffnen
+
+        <span class="nv">$commandbuilder</span> <span class="o">=</span> new-object MySql.Data.MySqlClient.MySqlCommandBuilder <span class="nv">$SqlAdapter</span>
+
+        <span class="nv">$SqlAdapter</span>.UpdateCommand <span class="o">=</span> <span class="nv">$commandbuilder</span>.GetUpdateCommand<span class="o">()</span>
+        <span class="nv">$SqlAdapter</span>.InsertCommand <span class="o">=</span> <span class="nv">$commandbuilder</span>.GetInsertCommand<span class="o">()</span>
+        <span class="nv">$SqlAdapter</span>.DeleteCommand <span class="o">=</span> <span class="nv">$commandbuilder</span>.GetDeleteCommand<span class="o">()</span>
+
+        <span class="nv">$null</span> <span class="o">=</span> <span class="nv">$SqlAdapter</span>.Update<span class="o">(</span><span class="nv">$DataSet</span><span class="o">)</span>
+
+        verbindungSchliessen
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Stichwortverzeichnis"
+             >Index</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">Dr. Watson und Datenbank 1 Dokumentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2015, STE.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6 erstellt.
+    </div>
+  </body>
+</html>

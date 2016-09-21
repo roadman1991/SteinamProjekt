@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Grafische Auswertung der WER-Reports &#8212; Dr. Watson und Datenbank 1 Dokumentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="top" title="Dr. Watson und Datenbank 1 Dokumentation" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Stichwortverzeichnis"
+             accesskey="I">Index</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">Dr. Watson und Datenbank 1 Dokumentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Inhalt</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Grafische Auswertung der WER-Reports</a><ul>
+<li><a class="reference internal" href="#ausgangssituation">Ausgangssituation</a></li>
+<li><a class="reference internal" href="#ist-analyse">Ist-Analyse</a></li>
+<li><a class="reference internal" href="#soll-analyse">Soll-Analyse</a><ul>
+<li><a class="reference internal" href="#gui-oberflache">GUI-Oberfläche</a></li>
+<li><a class="reference internal" href="#datengewinnung-und-ubergabe">Datengewinnung und Übergabe</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#umsetzung">Umsetzung</a><ul>
+<li><a class="reference internal" href="#gui">GUI</a></li>
+<li><a class="reference internal" href="#logik">Logik</a></li>
+<li><a class="reference internal" href="#excel">Excel</a></li>
+<li><a class="reference internal" href="#grafische-ausgabe">Grafische Ausgabe</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#fazit">Fazit</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>Diese Seite</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/werreport_grafisch.txt"
+            rel="nofollow">Quellcode anzeigen</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Schnellsuche</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Los" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="grafische-auswertung-der-wer-reports">
+<h1>Grafische Auswertung der WER-Reports<a class="headerlink" href="#grafische-auswertung-der-wer-reports" title="Link zu dieser Überschrift">¶</a></h1>
+<div class="section" id="ausgangssituation">
+<h2>Ausgangssituation<a class="headerlink" href="#ausgangssituation" title="Link zu dieser Überschrift">¶</a></h2>
+</div>
+<div class="section" id="ist-analyse">
+<h2>Ist-Analyse<a class="headerlink" href="#ist-analyse" title="Link zu dieser Überschrift">¶</a></h2>
+</div>
+<div class="section" id="soll-analyse">
+<h2>Soll-Analyse<a class="headerlink" href="#soll-analyse" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Bei der Realisierung der Vorgaben stellen sich schnell einige kritische Punkte heraus.</p>
+<ul class="simple">
+<li>Wie erstellt man mit Hilfe der Powershell eine grafische Oberfläche</li>
+<li>Wie erzeugt man die grafischen Daten und integriert sie in die GUI</li>
+<li>Wie gewinnt man die Daten aus der grafischen Oberfläche heraus</li>
+</ul>
+<div class="section" id="gui-oberflache">
+<h3>GUI-Oberfläche<a class="headerlink" href="#gui-oberflache" title="Link zu dieser Überschrift">¶</a></h3>
+</div>
+<div class="section" id="datengewinnung-und-ubergabe">
+<h3>Datengewinnung und Übergabe<a class="headerlink" href="#datengewinnung-und-ubergabe" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Für das Herauslesen der Daten kann auf das Commandlet get-eventlog</p>
+</div>
+</div>
+<div class="section" id="umsetzung">
+<h2>Umsetzung<a class="headerlink" href="#umsetzung" title="Link zu dieser Überschrift">¶</a></h2>
+<div class="section" id="gui">
+<h3>GUI<a class="headerlink" href="#gui" title="Link zu dieser Überschrift">¶</a></h3>
+</div>
+<div class="section" id="logik">
+<h3>Logik<a class="headerlink" href="#logik" title="Link zu dieser Überschrift">¶</a></h3>
+</div>
+<div class="section" id="excel">
+<h3>Excel<a class="headerlink" href="#excel" title="Link zu dieser Überschrift">¶</a></h3>
+</div>
+<div class="section" id="grafische-ausgabe">
+<h3>Grafische Ausgabe<a class="headerlink" href="#grafische-ausgabe" title="Link zu dieser Überschrift">¶</a></h3>
+</div>
+</div>
+<div class="section" id="fazit">
+<h2>Fazit<a class="headerlink" href="#fazit" title="Link zu dieser Überschrift">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Stichwortverzeichnis"
+             >Index</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">Dr. Watson und Datenbank 1 Dokumentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2015, STE.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6 erstellt.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+.. Dr. Watson und seine Erben documentation master file, created by
+   sphinx-quickstart on Sat Sep 20 19:23:07 2014.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+=========================
+Dr. Watson goes Datenbank
+=========================
+
+
+.. toctree::
+   :maxdepth: 2
+
+   einstieg.rst
+   cont_integration.rst
+   versionsverwaltung.rst
+   wer_to_database.rst
+  
+..   daten_in_database.rst
+..   ps_forms.rst
+..   werreport_grafisch.rst
+..   aufgabe_ad.rst
+..   glossar.rst
+..   admin.rst
+
+
+.. only:: html
+
+	Suche
+	==================
+
+	* :ref:`search`

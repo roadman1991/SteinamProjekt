@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Runde 1 – Versionsverwaltung &#8212; Dr. Watson und Datenbank 1 Dokumentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="top" title="Dr. Watson und Datenbank 1 Dokumentation" href="index.html" />
+    <link rel="next" title="WEReports auslesen und speichern" href="wer_to_database.html" />
+    <link rel="prev" title="Continuous integration" href="cont_integration.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Stichwortverzeichnis"
+             accesskey="I">Index</a></li>
+        <li class="right" >
+          <a href="wer_to_database.html" title="WEReports auslesen und speichern"
+             accesskey="N">weiter</a> |</li>
+        <li class="right" >
+          <a href="cont_integration.html" title="Continuous integration"
+             accesskey="P">zurück</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Dr. Watson und Datenbank 1 Dokumentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Inhalt</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Runde 1  &#8211;  Versionsverwaltung</a><ul>
+<li><a class="reference internal" href="#zentrale-versionsverwaltung">Zentrale Versionsverwaltung</a></li>
+<li><a class="reference internal" href="#dezentrale-anarchie">Dezentrale Anarchie</a><ul>
+<li><a class="reference internal" href="#dezentrale-gemeinsamer-maintree">Dezentrale &#8211; Gemeinsamer Maintree</a></li>
+<li><a class="reference internal" href="#dezentral-gestaffelt">Dezentral - Gestaffelt</a></li>
+<li><a class="reference internal" href="#dezentrale-gatekeeper">Dezentrale - Gatekeeper</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Vorheriges Thema</h4>
+  <p class="topless"><a href="cont_integration.html"
+                        title="vorheriges Kapitel">Continuous integration</a></p>
+  <h4>Nächstes Thema</h4>
+  <p class="topless"><a href="wer_to_database.html"
+                        title="nächstes Kapitel">WEReports auslesen und speichern</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Diese Seite</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/versionsverwaltung.txt"
+            rel="nofollow">Quellcode anzeigen</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Schnellsuche</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Los" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="runde-1-versionsverwaltung">
+<h1>Runde 1  &#8211;  Versionsverwaltung<a class="headerlink" href="#runde-1-versionsverwaltung" title="Link zu dieser Überschrift">¶</a></h1>
+<p>Effiziente Programmierung innerhalb eines Teams bzw. auch als einzelner Entwickler ist ohne eine solide Versionsverwaltung eigentlich nicht mehr denkbar.
+Der Vorteil von Versionsverwaltungssystemen ist kurz gesagt:</p>
+<ul class="simple">
+<li>In der Sicherung von Zwischenschritten / Backup</li>
+<li>In der Dokumentation des Herstellungsprozesses</li>
+<li>Im einfachen Experimentieren durch Branching</li>
+<li>Im Vorhandensein von mehr Metainformationen: Wann wurde was warum von wem  geändert?</li>
+<li>In der effektive Zusammenarbeit ohne Datenverlust
+(A und B schreiben nacheinander auf eine Datei
+==&gt; letzter Schreibvorgang gewinnt nicht sondern Konflickt muss manuell gelößt werden)</li>
+</ul>
+<p>Es haben sich im Laufe der letzten Jahrzehnte letztendlich zwei Konzepte und mehrere konkrete Programme durchgesetzt.</p>
+<p>Als Konzept stehen sich dabei die Idee der <strong>zentralen</strong> bzww. <strong>dezentralen</strong> Versionsverwaltungssysteme gegenüber.</p>
+<div class="sidebar">
+<p class="first sidebar-title">Dateien</p>
+<blockquote>
+<div><p><a class="reference download internal" href="_downloads/gitphpug.pdf" download=""><code class="xref download docutils literal"><span class="pre">gitphpug</span></code></a></p>
+<p><a class="reference download internal" href="_downloads/vcswebmontag.pdf" download=""><code class="xref download docutils literal"><span class="pre">vcswebmontag</span></code></a></p>
+<p><a class="reference download internal" href="_downloads/Versionsverwaltung_Ausarbeitung.pdf" download=""><code class="xref download docutils literal"><span class="pre">Artikel</span></code></a></p>
+</div></blockquote>
+<p><a class="reference download internal" href="_downloads/git-cheat-sheet.pdf" download=""><code class="xref download docutils literal"><span class="pre">Cheatsheet</span> <span class="pre">1</span></code></a></p>
+<p class="last"><a class="reference download internal" href="_downloads/Git-Cheat-Sheet-by-RebelLabs.png" download=""><code class="xref download docutils literal"><span class="pre">Cheatsheet</span></code></a></p>
+</div>
+<div class="section" id="zentrale-versionsverwaltung">
+<h2>Zentrale Versionsverwaltung<a class="headerlink" href="#zentrale-versionsverwaltung" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Der Hauptvertreter dieser Gattung ist sicherlich <strong>Subversion</strong>. Es entstand als Alternative zu seinem zentralen Vorgänger <strong>CVS</strong> und sollte dessen Schwächen beheben.
+Als Haupteigenschaften können folgende Punkte genannt werden</p>
+<ul>
+<li><p class="first">Ein zentraler Server (genauer: ein zentrales Repository)</p>
+</li>
+<li><p class="first">Clients haben Schreib- und Leseberechtigung auf dem Repository</p>
+</li>
+<li><p class="first">Client speichert selbst keine Versionierungsdaten</p>
+</li>
+<li><p class="first">Rein zentralistisches Konzept</p>
+</li>
+<li><p class="first">Bei Verlust des zentralen Servers hilft hoffentlich ein Backup</p>
+<a class="reference internal image-reference" href="_images/version_zentral_1.jpg"><img alt="_images/version_zentral_1.jpg" src="_images/version_zentral_1.jpg" style="width: 7cm;" /></a>
+</li>
+</ul>
+</div>
+<div class="section" id="dezentrale-anarchie">
+<h2>Dezentrale Anarchie<a class="headerlink" href="#dezentrale-anarchie" title="Link zu dieser Überschrift">¶</a></h2>
+<a class="reference internal image-reference" href="_images/dezentral_anarchie.jpg"><img alt="_images/dezentral_anarchie.jpg" src="_images/dezentral_anarchie.jpg" style="width: 7cm;" /></a>
+<p>Ausgangspunkt für die Entwicklung dezentraler Versionverwaltungssysteme waren die besonderen Bedürfnisse einiger großer Open-Source-Projekte, darunter auch das Linux-Kernel-Projekt.
+Nachdem Linux Torvalds aus lizenztechnischen Gründen die Verwendung seiner kommerziellen Lösung (Bitkeeper) nicht mehr aufrechterhalten konnte, initiierte er die Entwicklung einer eigenen Versionsverwaltungssoftware namens <strong>git</strong> (<a class="reference external" href="https://de.wikipedia.org/wiki/Git">https://de.wikipedia.org/wiki/Git</a>). Weitere Implementierungen der dezentralen Idee erfolgten in Programmen wie <strong>Mercurial</strong>, <strong>Bazaar</strong> und <strong>Monotone</strong>.</p>
+<p>Kerneigenschaften dieser Idee ist:</p>
+<ul class="simple">
+<li>Mächtige nicht-lineare Entwicklung (Branching/Merging)</li>
+<li>Kein zentraler Server notwendig:
+Obwohl es keinen technischen Unterschied zwischen verschiedenen Repositories gibt, gilt die Kopie, auf die von einer Projekt-Homepage aus verwiesen wird, häufig als das offizielle Repository, in das die Revisionen der Entwickler übertragen werden.</li>
+<li>Kryptographische Sicherheit der Projektgeschichte:
+Der Hash einer beliebigen Revision (commit) auf der vollständigen Geschichte basiert, die zu dieser Revision geführt hat. Dadurch ist es nicht möglich, die Versionsgeschichte nachträglich zu manipulieren, ohne dass sich der Hash der Revision ändert.</li>
+<li>Jeder Client pflegt eigenes lokales Repository</li>
+<li>Clients haben nur auf eigenes Repo Schreibzugriff</li>
+<li>Austausch von Daten über Pull-Requests (bei öffentlichen Repositories)
+Patchsets (bei privaten Repositories)</li>
+<li>Absolut dezentrale Entwicklung</li>
+</ul>
+<p>Diese Ideen entsprachen häufig den Wünschen von Entwicklern, die in großen Teams an großen Projekten arbeiten. Durch die Bereitstellung von Portalen wie <strong>github</strong> und <strong>bitbucket</strong> hat sich diese Art der Versionsverwaltung durchgesetzt. Selbst Microsoft bietet in seine Programm tfs mittlerweile die Verwendung des git-Protokolls an.</p>
+<p>Neben der ursprünglichen komplett dezentralen Lösung haben sich weitere organisatorische Variationen entwickelt.</p>
+<div class="section" id="dezentrale-gemeinsamer-maintree">
+<h3>Dezentrale &#8211; Gemeinsamer Maintree<a class="headerlink" href="#dezentrale-gemeinsamer-maintree" title="Link zu dieser Überschrift">¶</a></h3>
+<ul class="simple">
+<li>Gemeinsames Repository für die Hauptentwicklung</li>
+<li>Üblicherweise von wenigen Personen betreut, die Code einpflegen (&#8220;Integration Manager&#8221;)</li>
+<li>nur diese haben Schreibzugriff auf das gemeinsame Repository</li>
+<li>Abgesegneter Code wird veröffentlicht</li>
+<li>Clients ziehen Updates aus dem Gemeinsamen Repository</li>
+</ul>
+<a class="reference internal image-reference" href="_images/dezentral_gemeinsam.jpg"><img alt="_images/dezentral_gemeinsam.jpg" src="_images/dezentral_gemeinsam.jpg" style="width: 7cm;" /></a>
+</div>
+<div class="section" id="dezentral-gestaffelt">
+<h3>Dezentral - Gestaffelt<a class="headerlink" href="#dezentral-gestaffelt" title="Link zu dieser Überschrift">¶</a></h3>
+<ul class="simple">
+<li>Hierarchie aus „Integration Managern“ pflegt jeweils einen Teil</li>
+<li>Verteilung der Verantwortlichkeiten und Lasten auf mehrere Schultern</li>
+<li>Beispielsweise beim Linux Kernel eingesetzt</li>
+</ul>
+<a class="reference internal image-reference" href="_images/dezentral_gestaffelt.jpg"><img alt="_images/dezentral_gestaffelt.jpg" src="_images/dezentral_gestaffelt.jpg" style="width: 7cm;" /></a>
+</div>
+<div class="section" id="dezentrale-gatekeeper">
+<h3>Dezentrale - Gatekeeper<a class="headerlink" href="#dezentrale-gatekeeper" title="Link zu dieser Überschrift">¶</a></h3>
+<ul class="simple">
+<li>Gemeinsames Repository für die Hauptentwicklung</li>
+<li>Automatischer Test von Code auf Korrektheit (z.B. durch Test Framework oder
+Ablehnung von Code mit &#64;ToDo-Tags</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Stichwortverzeichnis"
+             >Index</a></li>
+        <li class="right" >
+          <a href="wer_to_database.html" title="WEReports auslesen und speichern"
+             >weiter</a> |</li>
+        <li class="right" >
+          <a href="cont_integration.html" title="Continuous integration"
+             >zurück</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Dr. Watson und Datenbank 1 Dokumentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2015, STE.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6 erstellt.
+    </div>
+  </body>
+</html>

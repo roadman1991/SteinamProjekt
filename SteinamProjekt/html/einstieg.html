@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Gedachter Verlauf &#8212; Dr. Watson und Datenbank 1 Dokumentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="top" title="Dr. Watson und Datenbank 1 Dokumentation" href="index.html" />
+    <link rel="next" title="WER goes Datenbank" href="wer_to_database.html" />
+    <link rel="prev" title="Dr. Watson goes Datenbank" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Stichwortverzeichnis"
+             accesskey="I">Index</a></li>
+        <li class="right" >
+          <a href="wer_to_database.html" title="WER goes Datenbank"
+             accesskey="N">weiter</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Dr. Watson goes Datenbank"
+             accesskey="P">zurück</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Dr. Watson und Datenbank 1 Dokumentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Inhalt</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Gedachter Verlauf</a><ul>
+<li><a class="reference internal" href="#inhalte-des-unterrichts">Inhalte des Unterrichts</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#vorgeschichte">Vorgeschichte</a><ul>
+<li><a class="reference internal" href="#error-report-dateien-wer">Error Report Dateien *.wer</a></li>
+<li><a class="reference internal" href="#konfiguration-von-windows-error-reporting-wer">Konfiguration von Windows Error Reporting (WER)</a></li>
+<li><a class="reference internal" href="#windows-error-reporting-wer-tools">Windows Error Reporting (WER) Tools</a></li>
+<li><a class="reference internal" href="#windows-powershell-error-reporting-wer-cmdlets">Windows PowerShell Error Reporting (WER) Cmdlets</a></li>
+<li><a class="reference internal" href="#logfiles-anstatt-wer-dateien-nutzen">Logfiles anstatt *.wer Dateien nutzen</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Vorheriges Thema</h4>
+  <p class="topless"><a href="index.html"
+                        title="vorheriges Kapitel">Dr. Watson goes Datenbank</a></p>
+  <h4>Nächstes Thema</h4>
+  <p class="topless"><a href="wer_to_database.html"
+                        title="nächstes Kapitel">WER goes Datenbank</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Diese Seite</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/einstieg.txt"
+            rel="nofollow">Quellcode anzeigen</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Schnellsuche</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Los" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="gedachter-verlauf">
+<h1>Gedachter Verlauf<a class="headerlink" href="#gedachter-verlauf" title="Link zu dieser Überschrift">¶</a></h1>
+<p>Die Inhalte des Faches AWP werden in der 11. Klasse zweiteilig vermittelt.
+Neben dem Thema ERM/SQL/Datenbanken mit insgesamt 7 Stunden pro Blockwoche wird das aktive Programmieren einer datenbankgestützten Applikation umgesetzt.</p>
+<p>Es wird im Laufe des Schuljahres mindestens 1 Test geschrieben.</p>
+<p>Die weiteren Ausführungen beziehen sich auf den zweiten Teil des Unterrichts.</p>
+<div class="section" id="inhalte-des-unterrichts">
+<h2>Inhalte des Unterrichts<a class="headerlink" href="#inhalte-des-unterrichts" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Das Programmierthema dient zur Vermittlung von Inhalten der Softwareentwicklung und bezieht sich auf folgende Themen.</p>
+<ul class="simple">
+<li>Programmieren einer datenbankgestützten C#-Applikation</li>
+<li>Versionsverwaltung</li>
+<li>Unit-Testing</li>
+<li>Metriken</li>
+<li>Einsatz von CI-Software</li>
+</ul>
+<p>Die Programmierung kann/sollte mit Hilfe verschiedener Programmiersprachen erfolgen, wobei darauf zu achten ist, dass grundlegende Kenntnisse der Programmiersprache innerhalb des Teams vorhanden sein sollten.</p>
+</div>
+</div>
+<div class="section" id="vorgeschichte">
+<h1>Vorgeschichte<a class="headerlink" href="#vorgeschichte" title="Link zu dieser Überschrift">¶</a></h1>
+<p>Bis Windows XP und Server2003 war Dr. Watson das Programm zur Crash-Analyse. Ab Windows Vista ist nun Windows Error Reporting (WER) für das Hardware und Software Problemreporting, an die Stelle von Dr. Watson getreten.</p>
+<p>Hier muss man aber beachten, das Programme die mit dem .NET Framework entwickelt worden sind meist keine Error-Reports erzeugen!</p>
+<p>Windows Error Reporting (WER) ist für 2 Aufgaben zuständig. Die Fehlerberichtsfunktion ermöglicht es Anwendungsfehler, Kernel-Fehler, nicht mehr reagierende Anwendungen und andere anwendungsspezifische Problemberichte über einen Service an Microsoft zu senden.</p>
+<div class="sidebar">
+<p class="first sidebar-title">Problematik von WER-Report</p>
+<p class="last"><a class="reference download internal" href="_downloads/notes_on_wer.pdf" download=""><code class="xref download docutils literal"><span class="pre">notes_on_wer</span></code></a></p>
+</div>
+<p>Werden die Problemberichte an Microsoft gesendet, dann wird in der Datenbank bei Microsoft nach Lösungen für das aufgetretene Problem gesucht und es werden Lösungen vorschlagen, wenn welche gefunden wurden. Das Senden dieser Berichte kann seitens des Systemadministrators verhindert werden.</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="nv">Version</span><span class="o">=</span>1
+<span class="nv">EventType</span><span class="o">=</span>APPCRASH
+<span class="nv">EventTime</span><span class="o">=</span>130467955473684710
+<span class="nv">ReportType</span><span class="o">=</span>2
+<span class="nv">Consent</span><span class="o">=</span>1
+<span class="nv">UploadTime</span><span class="o">=</span>130467955480403784
+<span class="nv">ReportIdentifier</span><span class="o">=</span>4a222852-efdd-11e3-8281-78dd08b4da52
+<span class="nv">IntegratorReportIdentifier</span><span class="o">=</span>4a222851-efdd-11e3-8281-78dd08b4da52
+<span class="nv">WOW64</span><span class="o">=</span>1
+<span class="nv">NsAppName</span><span class="o">=</span>daVinci.exe
+Response.BucketId<span class="o">=</span>4f5befa6735ab77e0d40a74ab08834b6
+Response.BucketTable<span class="o">=</span>1
+Response.LegacyBucketId<span class="o">=</span>73313869235
+Response.type<span class="o">=</span>4
+Sig<span class="o">[</span>0<span class="o">]</span>.Name<span class="o">=</span>Anwendungsname
+Sig<span class="o">[</span>0<span class="o">]</span>.Value<span class="o">=</span>daVinci.exe
+Sig<span class="o">[</span>1<span class="o">]</span>.Name<span class="o">=</span>Anwendungsversion
+Sig<span class="o">[</span>1<span class="o">]</span>.Value<span class="o">=</span>6.0.2.79
+....
+....
+</pre></div>
+</div>
+<p>Die Probleme werden anhand einer so genannten Bucket-ID Identifiziert. Die Bucket-ID (oder auch fault Bucket ID) wird aus der Version des Programms, das abgestürzt ist und anderen technischen Informationen erzeugt. Dies schafft eine einzigartige Signatur für den Absturz. Die Bucket-ID erscheint in den Details des Windows-Crash-Dialogs und den Ereignisprotokollen. Diese Bucket-ID ist wichtig für Microsoft um das Problem eindeutig erkennen zu können.</p>
+<div class="section" id="error-report-dateien-wer">
+<h2>Error Report Dateien <a href="#id1"><span class="problematic" id="id2">*</span></a>.wer<a class="headerlink" href="#error-report-dateien-wer" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Windows Error Reporting (WER) sammelt auch die Reportdateien mit der Endung “.wer”, an verschiedenen Orten auf dem Computer.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># Per user archived Windows Error Reports</span>
+<span class="nv">$env</span>:USERPROFILE<span class="se">\A</span>ppData<span class="se">\L</span>ocal<span class="se">\M</span>icrosoft<span class="se">\W</span>indows<span class="se">\W</span>ER<span class="se">\R</span>eportArchive
+<span class="c1"># Per user queued Windows Error Reports</span>
+<span class="nv">$env</span>:USERPROFILE<span class="se">\A</span>ppData<span class="se">\L</span>ocal<span class="se">\M</span>icrosoft<span class="se">\W</span>indows<span class="se">\W</span>ER<span class="se">\R</span>eportQueue
+<span class="c1"># System archived Windows Error Reports</span>
+<span class="nv">$env</span>:ALLUSERSPROFILE<span class="se">\M</span>icrosoft<span class="se">\W</span>indows<span class="se">\W</span>ER<span class="se">\R</span>eportArchive
+<span class="c1"># System queued Windows Error Reports</span>
+<span class="nv">$env</span>:ALLUSERSPROFILE<span class="se">\M</span>icrosoft<span class="se">\W</span>indows<span class="se">\W</span>ER<span class="se">\R</span>eportQueue
+</pre></div>
+</div>
+<img alt="_images/wer_report_path.png" src="_images/wer_report_path.png" />
+<p>Möchte man alle WER Reports erfassen, so muss man in jedem User Profil auf dem Rechner nach den <a href="#id3"><span class="problematic" id="id4">*</span></a>.wer Dateien suchen und alle genannten Ordner “abklappern”.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># liste mit allen Windows Error Reporting User-Pfaden dieses Rechner erstellen</span>
+<span class="nv">$WerReportPfade</span> <span class="o">=</span> Get-ChildItem <span class="nv">$env</span>:SystemDrive<span class="se">\u</span>sers <span class="p">|</span> Where-Object
+     <span class="o">{</span><span class="nv">$_</span>.PSIsContainer<span class="o">}</span> <span class="p">|</span> ForEach-Object <span class="o">{</span> <span class="nv">$Path</span> <span class="o">=</span> <span class="nv">$_</span>.Fullname
+
+     <span class="c1"># Testen ob der richtige Unter-Pfad im User Ordner vorhanden ist</span>
+If<span class="o">(</span>Test-Path <span class="o">(</span>Join-Path -Path <span class="nv">$Path</span> -ChildPath <span class="s1">&#39;AppData\Local\Microsoft\Windows\WER\ReportArchive&#39;</span><span class="o">)</span> <span class="o">)</span>
+<span class="o">{</span>
+        <span class="c1"># Pfad ausgeben</span>
+        <span class="o">(</span>Join-Path -Path <span class="nv">$Path</span> -ChildPath <span class="s1">&#39;AppData\Local\Microsoft\Windows\WER\ReportArchive&#39;</span><span class="o">)</span>
+<span class="o">}</span>
+<span class="c1"># Testen ob der richtige Unter-Pfad im User Ordner vorhanden ist</span>
+If<span class="o">(</span>Test-Path <span class="o">(</span>Join-Path -Path <span class="nv">$Path</span> -ChildPath
+<span class="s1">&#39;AppData\Local\Microsoft\Windows\WER\ReportQueue&#39;</span><span class="o">)</span> <span class="o">)</span>
+<span class="o">{</span>
+        <span class="c1"># Pfad ausgeben</span>
+        <span class="o">(</span>Join-Path -Path <span class="nv">$Path</span> -ChildPath <span class="s1">&#39;AppData\Local\Microsoft\Windows\WER\ReportQueue&#39;</span><span class="o">)</span>
+<span class="o">}</span>
+<span class="o">}</span>
+<span class="c1"># Das System hat noch 2 Windows Error Reporting andere Pfade wo .wer Dateien liegen</span>
+<span class="c1"># diese werden zur liste zugefügt</span>
+
+.....
+</pre></div>
+</div>
+</div>
+<div class="section" id="konfiguration-von-windows-error-reporting-wer">
+<h2>Konfiguration von Windows Error Reporting (WER)<a class="headerlink" href="#konfiguration-von-windows-error-reporting-wer" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Windows Error Reporting (WER) kann auf verschiedene Weisen konfiguriert werden. So kann man z.B. Abschalten das Problemberichte an Microsoft deaktivieren oder die Orte ändern, an denen die <a href="#id5"><span class="problematic" id="id6">*</span></a>.wer Dateien abgelegt werden.</p>
+<p>Einen guten Artikel hat Herr Sommergut von WindowsPro verfasst:
+Problembericht senden: Windows Error Reporting konfigurieren oder deaktivieren <a class="reference external" href="http://www.windowspro.de/wolfgang-sommergut/problembericht-senden-windows-fehlerberichterstattung-konfigurieren-deaktivieren">http://www.windowspro.de/wolfgang-sommergut/problembericht-senden-windows-fehlerberichterstattung-konfigurieren-deaktivieren</a></p>
+<p>Herr Sommergut beschreibt auch das man die WER Reportdateien über Gruppenrichtlinien so konfigurieren kann, das Fehlerberichte an einen internen Server anstatt an Microsoft gesendet werden. Damit wird eine Funktion des Corporate Windows Error Reporting (CER) genutzt. Man kann damit ein NTFS-Share oder ein SSL-Verbindung nutzen, um die Reports an den eigenen Server zu senden.</p>
+<p>Weitere Dokumentation, wie man das Windows Error Reporting (WER) mit Group Policies oder Registry Schlüsseln einstellen kann, findet man in der Microsoft Dokumentation im Developer Center:</p>
+<p>Windows Error Reporting (WER) <a class="reference external" href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb513641%28v=vs.85%29.aspx">http://msdn.microsoft.com/en-us/library/windows/desktop/bb513641%28v=vs.85%29.aspx</a></p>
+<div class="sidebar">
+<p class="first sidebar-title">Collecting User-Mode Dumps</p>
+<p class="last"><a class="reference external" href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb787181%28v=vs.85%29.aspx">http://msdn.microsoft.com/en-us/library/windows/desktop/bb787181%28v=vs.85%29.aspx</a></p>
+</div>
+<p>Den Speicherort von den <a href="#id7"><span class="problematic" id="id8">*</span></a>.wer Dateien stellt man z.B. mit den folgenden Schlüsseln in der Windows Registry um:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>HKEY_LOCAL_MACHINE<span class="se">\S</span>OFTWARE<span class="se">\M</span>icrosoft<span class="se">\W</span>indows<span class="se">\W</span>indows Error Reporting<span class="se">\L</span>ocalDumps<span class="se">\D</span>umpFolder
+
+HKEY_LOCAL_MACHINE<span class="se">\S</span>OFTWARE<span class="se">\M</span>icrosoft<span class="se">\W</span>indows<span class="se">\W</span>indows Error Reporting<span class="se">\L</span>ocalDumps<span class="se">\D</span>umpType
+</pre></div>
+</div>
+</div>
+<div class="section" id="windows-error-reporting-wer-tools">
+<h2>Windows Error Reporting (WER) Tools<a class="headerlink" href="#windows-error-reporting-wer-tools" title="Link zu dieser Überschrift">¶</a></h2>
+<div class="sidebar">
+<p class="first sidebar-title">NirView</p>
+<p><a class="reference external" href="http://www.nirsoft.net/utils/app_crash_view.html">http://www.nirsoft.net/utils/app_crash_view.html</a></p>
+<p class="last"><a class="reference download internal" href="_downloads/appcrashview.zip" download=""><code class="xref download docutils literal"><span class="pre">notes_on_wer</span></code></a></p>
+</div>
+<p>Ein gutes Tool zum Verarbeiten von den Windows Error Reporting Dateien, hat Nir Sofer hergestellt. Dieses Tool nennt sich AppCrashView und kann auch mit der Windows PowerShell eingesetzt werden. Da es die <a href="#id9"><span class="problematic" id="id10">*</span></a>.wer Dateien in CSV oder XML umwandeln kann und von der Kommandozeile aus, gesteuert werden kann.</p>
+<img alt="_images/nirsoft.png" src="_images/nirsoft.png" />
+</div>
+<div class="section" id="windows-powershell-error-reporting-wer-cmdlets">
+<h2>Windows PowerShell Error Reporting (WER) Cmdlets<a class="headerlink" href="#windows-powershell-error-reporting-wer-cmdlets" title="Link zu dieser Überschrift">¶</a></h2>
+<p>In Windows 8 und Server 2012 R2 gibt es nun auch 3 sehr bescheidene Windows PowerShell Cmdlets um das Reporting an oder abzuschalten.</p>
+<p>Windows Error Reporting (WER) Cmdlets in Windows PowerShell <a class="reference external" href="http://technet.microsoft.com/en-us/library/jj590827.aspx">http://technet.microsoft.com/en-us/library/jj590827.aspx</a></p>
+<ul class="simple">
+<li><strong>Disable-WindowsErrorReporting</strong> schaltet das Error Reporting an Microsoft ab.</li>
+<li><strong>Enable-WindowsErrorReporting</strong> schaltet das Error Reporting an Microsoft wieder ein.</li>
+<li><strong>Get-WindowsErrorReporting</strong> zeigt an ob das Errorreporting ein oder ausgeschaltet ist.</li>
+</ul>
+</div>
+<div class="section" id="logfiles-anstatt-wer-dateien-nutzen">
+<h2>Logfiles anstatt <a href="#id11"><span class="problematic" id="id12">*</span></a>.wer Dateien nutzen<a class="headerlink" href="#logfiles-anstatt-wer-dateien-nutzen" title="Link zu dieser Überschrift">¶</a></h2>
+<div class="sidebar">
+<p class="first sidebar-title">Zentrale Verwaltng von Errors</p>
+<p><a class="reference external" href="http://www.faq-o-matic.net/2011/03/28/eventlog-monitoring-via-smtp-zentral-verwaltet-und-kostenfrei/">http://www.faq-o-matic.net/2011/03/28/eventlog-monitoring-via-smtp-zentral-verwaltet-und-kostenfrei/</a></p>
+<p class="last"><a class="reference external" href="http://www.msxfaq.de/tools/logparser.htm">http://www.msxfaq.de/tools/logparser.htm</a></p>
+</div>
+<p>Die <a href="#id13"><span class="problematic" id="id14">*</span></a>.wer Dateien zu sammeln und mit der Windows PowerShell zu analysieren, ist aber eigentlich der falsche Ansatz. Immer wenn ein Programm crasht, dann wird das in den Ereignisprotokollen(Eventlog) von Windows verzeichnet.</p>
+<p>Windows PowerShell kann hervorragend mit den Windows Ereignisprotokollen (Eventlog) von Windows umgehen, da es für diese Aufgabe spezielle Cmdlets hat.</p>
+<p>Ein abgestürzte Applikation, die einen Eintrag im Applikations-Ereignisprotokoll mit der ID 1000 und der Report-Quelle &#8220;Application Error&#8221; hinterlässt, könnte mit folgenden Befehl abgefragt werden.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>Get-EventLog -LogName Application -InstanceId <span class="m">1000</span> -Source <span class="s1">&#39;Application Error&#39;</span>
+</pre></div>
+</div>
+<p>Das Reporting selbst hinterlässt auch Einträge im Applikations-Ereignisprotokoll mit der ID 1001 und der Report-Quelle ” Windows Error Reporting”.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>Get-EventLog -LogName Application -InstanceId <span class="m">1001</span> -Source <span class="s1">&#39;Windows Error Reporting&#39;</span>
+</pre></div>
+</div>
+<p>Einen schönen Artikel darüber hat Aaron Paul Rykhus geschrieben: Finding useful crash data and Windows Error Reporting (WER) <a class="reference external" href="http://blogs.technet.com/b/arykhus/archive/2008/12/11/finding-useful-crash-data-and-windows-error-reporting-wer.aspx">http://blogs.technet.com/b/arykhus/archive/2008/12/11/finding-useful-crash-data-and-windows-error-reporting-wer.aspx</a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Stichwortverzeichnis"
+             >Index</a></li>
+        <li class="right" >
+          <a href="wer_to_database.html" title="WER goes Datenbank"
+             >weiter</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Dr. Watson goes Datenbank"
+             >zurück</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Dr. Watson und Datenbank 1 Dokumentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2015, STE.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6 erstellt.
+    </div>
+  </body>
+</html>

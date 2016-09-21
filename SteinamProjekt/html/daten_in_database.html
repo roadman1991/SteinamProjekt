@@ -1,0 +1,408 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>WER darstellen &#8212; Dr. Watson und Datenbank 1 Dokumentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="top" title="Dr. Watson und Datenbank 1 Dokumentation" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Stichwortverzeichnis"
+             accesskey="I">Index</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">Dr. Watson und Datenbank 1 Dokumentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Inhalt</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">WER darstellen</a><ul>
+<li><a class="reference internal" href="#ausgangssituation">Ausgangssituation</a></li>
+<li><a class="reference internal" href="#grafische-mockups-wireframes">Grafische Mockups/WireFrames</a></li>
+<li><a class="reference internal" href="#umsetzung-in-primalforms">Umsetzung in PrimalForms</a></li>
+<li><a class="reference internal" href="#ps-und-db-anbindung">PS und DB-Anbindung</a><ul>
+<li><a class="reference internal" href="#ado-net">ADO .NET</a></li>
+<li><a class="reference internal" href="#herstellen-einer-verbindung">Herstellen einer Verbindung</a></li>
+<li><a class="reference internal" href="#auslesen-von-daten">Auslesen von Daten</a></li>
+<li><a class="reference internal" href="#einfugen-andern-loschen-von-daten">Einfügen/Ändern/Löschen von Daten</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#exportieren-nach-excel">Exportieren nach Excel</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>Diese Seite</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/daten_in_database.txt"
+            rel="nofollow">Quellcode anzeigen</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Schnellsuche</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Los" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="wer-darstellen">
+<h1>WER darstellen<a class="headerlink" href="#wer-darstellen" title="Link zu dieser Überschrift">¶</a></h1>
+<div class="section" id="ausgangssituation">
+<h2>Ausgangssituation<a class="headerlink" href="#ausgangssituation" title="Link zu dieser Überschrift">¶</a></h2>
+<p>In ihrer Firma existieren Skripte, die Windows Error Reports sammeln und in einer MySQL-Datenbank abspeichern.
+Nachdem mit dem Speichern der Daten der Sammelvorgang abgeschlossen ist, wird nun vom IT-Leiter der Wunsch geäußert, diese Daten in einer einfachen Form abfragen und nach bestimmten Kriterien auswerten zu können. Da dieses Projekt keine hohe Priorität in der Firma hat, können keine Programmierer mit dieser Aufgabe betraut werden.</p>
+<p>Sie erhalten deshalb vom IT-Leiter die Aufgabe, für diese Auswertung eine einfache grafische Lösung zu programmieren.</p>
+<p>Zur Information erhalten Sie vom IT-Leiter noch das folgende Datenmodell.</p>
+<div class="admonition-aufgabe admonition">
+<p class="first admonition-title">Aufgabe</p>
+<p>Analysieren Sie das folgende Datenmodell</p>
+<a class="last reference internal image-reference" href="_images/data_model.png"><img alt="_images/data_model.png" src="_images/data_model.png" style="width: 500px;" /></a>
+</div>
+<div class="admonition-aufgabe admonition">
+<p class="first admonition-title">Aufgabe</p>
+<p class="last">Überlegen Sie sich mit Hilfe eines Mockups, wie diese &#8220;einfache grafische Lösung&#8221; aussehen könnte.
+gehen Sie dabei von folgender Fragestellung aus:
+Was könnte der IT-Leiter mit dieser Anwendung vorhaben; wie könnte er sie benutzen ?</p>
+</div>
+</div>
+<div class="section" id="grafische-mockups-wireframes">
+<h2>Grafische Mockups/WireFrames<a class="headerlink" href="#grafische-mockups-wireframes" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Mit &#8220;Mockup&#8221; wird die Technik beschrieben, mit einfachen Hilfsmitteln eine Vorstellung von einer GUI-Anwendung zu erhalten. Es können damit Bedienkonzepte
+dargestellt und diskutiert werden.</p>
+<p>Ein bekanntes und für unsere Zwecke ausreichendes Tool ist das Programm PENCIL, welches Sie unter <a class="reference external" href="http://pencil.evolus.vn/">http://pencil.evolus.vn/</a> downloaden können.</p>
+<p>Eine damit erzeugte GUI könnte wie folgt aussehen:</p>
+<div class="sidebar">
+<p class="first sidebar-title">GUI</p>
+<p class="last"><a class="reference download internal" href="_downloads/GUI_kommentiert.pdf" download=""><code class="xref download docutils literal"><span class="pre">GUI</span></code></a></p>
+</div>
+<a class="reference internal image-reference" href="_images/gui.png"><img alt="_images/gui.png" src="_images/gui.png" style="width: 200px;" /></a>
+</div>
+<div class="section" id="umsetzung-in-primalforms">
+<h2>Umsetzung in PrimalForms<a class="headerlink" href="#umsetzung-in-primalforms" title="Link zu dieser Überschrift">¶</a></h2>
+<p>PrimalForms Community Edition ist ein Werkzeug, mit dem man grafische Oberflächen (WinForm) für die Powershell zusammenklicken kann.
+Neben den grafischen Elementen und deren Eigenschaften können auch die auf diese Komponenten wirkenden Ereignisse (z.B. Click) definiert werden. PrimalForms generiert daraus Quellcode, der dann in der Powershell ausgeführt werden kann.</p>
+<img alt="_images/primalfom_attribute_event.jpg" src="_images/primalfom_attribute_event.jpg" />
+<p>Mit Hilfe des Buttons <strong>ExportToPowershell</strong> kann der das Formular beschreibende Quellcode als Powershell-Skript gespeichert werden.</p>
+<div class="sidebar">
+<p class="first sidebar-title">Download</p>
+<p class="last"><a class="reference download internal" href="_downloads/PF_Generated_Form_Function.docx" download=""><code class="xref download docutils literal"><span class="pre">Quellcode</span></code></a></p>
+</div>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1">#Generated Form Function</span>
+<span class="k">function</span> GenerateForm <span class="o">{</span>
+<span class="c1">########################################################################</span>
+<span class="c1"># Code Generated By: SAPIEN Technologies PrimalForms (Community Edition) v1.0.10.0</span>
+<span class="c1"># Generated On: 26.11.2014 21:24</span>
+<span class="c1"># Generated By: Karl</span>
+<span class="c1">########################################################################</span>
+
+<span class="c1">#region Import the Assemblies</span>
+<span class="o">[</span>reflection.assembly<span class="o">]</span>::loadwithpartialname<span class="o">(</span><span class="s2">&quot;System.Windows.Forms&quot;</span><span class="o">)</span> <span class="p">|</span> Out-Null
+<span class="o">[</span>reflection.assembly<span class="o">]</span>::loadwithpartialname<span class="o">(</span><span class="s2">&quot;System.Drawing&quot;</span><span class="o">)</span> <span class="p">|</span> Out-Null
+<span class="c1">#endregion</span>
+
+<span class="c1">#region Generated Form Objects</span>
+<span class="nv">$form1</span> <span class="o">=</span> New-Object System.Windows.Forms.Form
+<span class="nv">$lblAusgabe</span> <span class="o">=</span> New-Object System.Windows.Forms.Label
+<span class="nv">$txtNameEingabe</span> <span class="o">=</span> New-Object System.Windows.Forms.TextBox
+<span class="nv">$Hello</span> <span class="o">=</span> New-Object System.Windows.Forms.Button
+<span class="nv">$InitialFormWindowState</span> <span class="o">=</span> New-Object System.Windows.Forms.FormWindowState
+<span class="c1">#endregion Generated Form Objects</span>
+
+<span class="c1">#----------------------------------------------</span>
+<span class="c1">#Generated Event Script Blocks</span>
+<span class="c1">#----------------------------------------------</span>
+<span class="c1">#Provide Custom Code for events specified in PrimalForms.</span>
+<span class="nv">$Hello_OnClick</span><span class="o">=</span>
+<span class="o">{</span>
+<span class="c1">#TODO: Place custom script here</span>
+
+<span class="o">}</span>
+
+<span class="nv">$OnLoadForm_StateCorrection</span><span class="o">=</span>
+<span class="o">{</span><span class="c1">#Correct the initial state of the form to prevent the .Net maximized form issue</span>
+        <span class="nv">$form1</span>.WindowState <span class="o">=</span> <span class="nv">$InitialFormWindowState</span>
+<span class="o">}</span>
+
+<span class="c1">#----------------------------------------------</span>
+<span class="c1">#region Generated Form Code</span>
+<span class="nv">$System_Drawing_Size</span> <span class="o">=</span> New-Object System.Drawing.Size
+<span class="nv">$System_Drawing_Size</span>.Height <span class="o">=</span> 328
+<span class="nv">$System_Drawing_Size</span>.Width <span class="o">=</span> 395
+<span class="nv">$form1</span>.ClientSize <span class="o">=</span> <span class="nv">$System_Drawing_Size</span>
+<span class="nv">$form1</span>.DataBindings.DefaultDataSourceUpdateMode <span class="o">=</span> 0
+<span class="nv">$form1</span>.Name <span class="o">=</span> <span class="s2">&quot;form1&quot;</span>
+<span class="nv">$form1</span>.Text <span class="o">=</span> <span class="s2">&quot;Primal Form&quot;</span>
+
+<span class="nv">$lblAusgabe</span>.DataBindings.DefaultDataSourceUpdateMode <span class="o">=</span> 0
+
+<span class="nv">$System_Drawing_Point</span> <span class="o">=</span> New-Object System.Drawing.Point
+<span class="nv">$System_Drawing_Point</span>.X <span class="o">=</span> 199
+<span class="nv">$System_Drawing_Point</span>.Y <span class="o">=</span> 120
+<span class="nv">$lblAusgabe</span>.Location <span class="o">=</span> <span class="nv">$System_Drawing_Point</span>
+<span class="nv">$lblAusgabe</span>.Name <span class="o">=</span> <span class="s2">&quot;lblAusgabe&quot;</span>
+<span class="nv">$System_Drawing_Size</span> <span class="o">=</span> New-Object System.Drawing.Size
+<span class="nv">$System_Drawing_Size</span>.Height <span class="o">=</span> 24
+<span class="nv">$System_Drawing_Size</span>.Width <span class="o">=</span> 137
+<span class="nv">$lblAusgabe</span>.Size <span class="o">=</span> <span class="nv">$System_Drawing_Size</span>
+<span class="nv">$lblAusgabe</span>.TabIndex <span class="o">=</span> 2
+<span class="nv">$lblAusgabe</span>.Text <span class="o">=</span> <span class="s2">&quot;label1&quot;</span>
+
+<span class="nv">$form1</span>.Controls.Add<span class="o">(</span><span class="nv">$lblAusgabe</span><span class="o">)</span>
+
+<span class="nv">$txtNameEingabe</span>.DataBindings.DefaultDataSourceUpdateMode <span class="o">=</span> 0
+<span class="nv">$System_Drawing_Point</span> <span class="o">=</span> New-Object System.Drawing.Point
+<span class="nv">$System_Drawing_Point</span>.X <span class="o">=</span> 43
+<span class="nv">$System_Drawing_Point</span>.Y <span class="o">=</span> 125
+<span class="nv">$txtNameEingabe</span>.Location <span class="o">=</span> <span class="nv">$System_Drawing_Point</span>
+<span class="nv">$txtNameEingabe</span>.Name <span class="o">=</span> <span class="s2">&quot;txtNameEingabe&quot;</span>
+<span class="nv">$System_Drawing_Size</span> <span class="o">=</span> New-Object System.Drawing.Size
+<span class="nv">$System_Drawing_Size</span>.Height <span class="o">=</span> 20
+<span class="nv">$System_Drawing_Size</span>.Width <span class="o">=</span> 109
+<span class="nv">$txtNameEingabe</span>.Size <span class="o">=</span> <span class="nv">$System_Drawing_Size</span>
+<span class="nv">$txtNameEingabe</span>.TabIndex <span class="o">=</span> 1
+
+<span class="nv">$form1</span>.Controls.Add<span class="o">(</span><span class="nv">$txtNameEingabe</span><span class="o">)</span>
+
+
+<span class="nv">$Hello</span>.DataBindings.DefaultDataSourceUpdateMode <span class="o">=</span> 0
+
+<span class="nv">$System_Drawing_Point</span> <span class="o">=</span> New-Object System.Drawing.Point
+<span class="nv">$System_Drawing_Point</span>.X <span class="o">=</span> 99
+<span class="nv">$System_Drawing_Point</span>.Y <span class="o">=</span> 178
+<span class="nv">$Hello</span>.Location <span class="o">=</span> <span class="nv">$System_Drawing_Point</span>
+<span class="nv">$Hello</span>.Name <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span>
+<span class="nv">$System_Drawing_Size</span> <span class="o">=</span> New-Object System.Drawing.Size
+<span class="nv">$System_Drawing_Size</span>.Height <span class="o">=</span> 64
+<span class="nv">$System_Drawing_Size</span>.Width <span class="o">=</span> 173
+<span class="nv">$Hello</span>.Size <span class="o">=</span> <span class="nv">$System_Drawing_Size</span>
+<span class="nv">$Hello</span>.TabIndex <span class="o">=</span> 0
+<span class="nv">$Hello</span>.Text <span class="o">=</span> <span class="s2">&quot;btnHello&quot;</span>
+<span class="nv">$Hello</span>.UseVisualStyleBackColor <span class="o">=</span> <span class="nv">$True</span>
+<span class="nv">$Hello</span>.add_Click<span class="o">(</span><span class="nv">$Hello_OnClick</span><span class="o">)</span>
+
+<span class="nv">$form1</span>.Controls.Add<span class="o">(</span><span class="nv">$Hello</span><span class="o">)</span>
+
+<span class="c1">#endregion Generated Form Code</span>
+
+<span class="c1">#Save the initial state of the form</span>
+<span class="nv">$InitialFormWindowState</span> <span class="o">=</span> <span class="nv">$form1</span>.WindowState
+<span class="c1">#Init the OnLoad event to correct the initial state of the form</span>
+<span class="nv">$form1</span>.add_Load<span class="o">(</span><span class="nv">$OnLoadForm_StateCorrection</span><span class="o">)</span>
+<span class="c1">#Show the Form</span>
+<span class="nv">$form1</span>.ShowDialog<span class="o">()</span><span class="p">|</span> Out-Null
+
+<span class="o">}</span> <span class="c1">#End Function</span>
+
+<span class="c1">#Call the Function</span>
+GenerateForm
+</pre></div>
+</div>
+</div>
+<div class="section" id="ps-und-db-anbindung">
+<h2>PS und DB-Anbindung<a class="headerlink" href="#ps-und-db-anbindung" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Lediglich für den SQL-Server bietet Microsoft eine Sammlung von Commandlets zum Umgang mit dem Datenbank-Server an. Bei anderen Datenbank-Systemen kann man aber mit Hilfe des .NET-Frameworks und der von den Herstellern angebotenen Datenbanktreibern eine Zusammenarbeit bewerkstelligen.</p>
+<p>Dazu sind aber grundlegende Verständnisse des Datenbankzugriffes unter .NET notwendig.</p>
+<div class="section" id="ado-net">
+<h3>ADO .NET<a class="headerlink" href="#ado-net" title="Link zu dieser Überschrift">¶</a></h3>
+<p>ADO .NET stellt das grundlegende Denkmodell von Microsoft zum Datenbankzugriff dar. Es besteht aus einer ganzen Reihe von durch Objekten gekapselten Zugriffsverfahren, die durch die jeweiligen Datenbank-Treiber (Provider) zur Verfügung gestellt werden. Die wichtigsten werden kurz vorgestellt.</p>
+<img alt="_images/ado_net_architecture.jpg" src="_images/ado_net_architecture.jpg" />
+<img alt="_images/ado_mysql_provider.jpg" src="_images/ado_mysql_provider.jpg" />
+<img alt="_images/kd_ado_net_modell.jpg" src="_images/kd_ado_net_modell.jpg" />
+<p>Damit werden für den lesenden und schreibenden Zugriff auf die Daten einer Datenbank unterschiedliche Objketmodelle seitens von .NET verwendet.</p>
+</div>
+<div class="section" id="herstellen-einer-verbindung">
+<h3>Herstellen einer Verbindung<a class="headerlink" href="#herstellen-einer-verbindung" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="sidebar">
+<p class="first sidebar-title">Link</p>
+<p class="last"><a class="reference external" href="http://vwiki.co.uk/MySQL_and_PowerShell">http://vwiki.co.uk/MySQL_and_PowerShell</a></p>
+</div>
+<p>In jedem Falle ist ein Verbindungsaufbau zum Datenbankserver notwendig. Es müssen zumindest Username/Passwort, Rechnername des Datenbankservers sowie der Datenbankname übergeben werden.</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>Function con_db <span class="o">()</span>
+<span class="o">{</span>
+        <span class="o">[</span>void<span class="o">][</span>system.reflection.Assembly<span class="o">]</span>::LoadFrom<span class="o">(</span><span class="s2">&quot;C:\Program Files (x86)\MySQL\MySQL Connector Net 6.7.4\Assemblies\v4.0\mysql.data.dll&quot;</span><span class="o">)</span><span class="p">;</span>
+        <span class="nv">$connstring</span> <span class="o">=</span> <span class="s2">&quot;Server=localhost;Uid=root;Pwd=&#39;XXXXX&#39;;Database=XXXXXX&quot;</span><span class="p">;</span>
+        <span class="nv">$con</span> <span class="o">=</span> New-Object Mysql.Data.MysqlClient.MysqlConnection<span class="p">;</span>
+        <span class="nv">$con</span>.ConnectionString <span class="o">=</span> <span class="nv">$connstring</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nv">$con</span><span class="p">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Die Verbindungsdaten werden in .NET in einem Objekt gespeichert; dieses kann dann von anderen Teilen des Skriptes verwendet werden.</p>
+</div>
+<div class="section" id="auslesen-von-daten">
+<h3>Auslesen von Daten<a class="headerlink" href="#auslesen-von-daten" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Der SELECT-Befehl kann mit Hilfe verschiedener Objekte abgewickelt werden. Dies sind <strong>DataReader</strong> bzw. <strong>DataTables</strong>.</p>
+<p><strong>DataReader</strong></p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="k">function</span> mysql_select<span class="o">(</span><span class="nv">$query</span><span class="o">)</span>
+<span class="o">{</span>
+        <span class="nv">$cmd</span> <span class="o">=</span> New-Object MySql.Data.MySqlClient.MySqlCommand<span class="p">;</span>
+        <span class="nv">$cmd</span>.CommandText <span class="o">=</span> <span class="nv">$query</span>
+        <span class="nv">$results</span> <span class="o">=</span> <span class="nv">$cmd</span>.ExecuteReader<span class="o">()</span>
+        <span class="nv">$cmd</span>.Dispose<span class="o">()</span>
+        <span class="k">while</span> <span class="o">(</span><span class="nv">$results</span>.Read<span class="o">())</span> <span class="o">{</span>
+
+          //Zugriff über die Spalten eines Datensatzes
+          <span class="k">for</span> <span class="o">(</span><span class="nv">$i</span><span class="o">=</span> 0<span class="p">;</span> <span class="nv">$i</span> -lt <span class="nv">$results</span>.FieldCount<span class="p">;</span> <span class="nv">$i</span>++<span class="o">)</span> <span class="o">{</span>
+              write-output <span class="nv">$results</span>.GetValue<span class="o">(</span><span class="nv">$i</span><span class="o">)</span>.ToString<span class="o">()</span>
+          <span class="o">}</span>
+
+          //So würde es auch gehen
+          write-output %results<span class="o">[</span><span class="s2">&quot;feld1&quot;</span><span class="o">]</span>
+          write-output <span class="nv">$results</span><span class="o">[</span><span class="s2">&quot;feld2&quot;</span><span class="o">]</span>
+<span class="o">}</span>
+
+
+<span class="nv">$select_string</span> <span class="o">=</span> <span class="s2">&quot;SELECT feld1, feld2 FROM table;&quot;</span>
+
+mysql_select <span class="nv">$select_string</span>
+</pre></div>
+</div>
+<p>Problematische Elemente des DataReaders sind:</p>
+<ul class="simple">
+<li>Der Reader kann nur über eine Schleife durchlaufen werden; die Daten müssen deshalb zur weiteren Verwendung irgendwie gespeichert werden.</li>
+<li>der Zugriff auf die Feldwerte erfolgt innerhalb der Schleife über einen Indexwert, was nicht besonders komfortabel ist</li>
+</ul>
+<p><strong>DataSet</strong></p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="k">function</span> Execute-MySQLQuery<span class="o">([</span>string<span class="o">]</span><span class="nv">$query</span>, <span class="nv">$con</span><span class="o">)</span> <span class="o">{</span>
+  <span class="c1"># Create SQL command</span>
+  <span class="nv">$cmd</span> <span class="o">=</span> New-Object MySql.Data.MySqlClient.MySqlCommand<span class="o">(</span><span class="nv">$query</span>, <span class="nv">$con</span><span class="o">)</span>
+
+  <span class="c1"># Create data adapter from query command</span>
+  <span class="nv">$dataAdapter</span> <span class="o">=</span> New-Object MySql.Data.MySqlClient.MySqlDataAdapter<span class="o">(</span><span class="nv">$cmd</span><span class="o">)</span>
+
+  <span class="c1"># Create dataset</span>
+  <span class="nv">$dataSet</span> <span class="o">=</span> New-Object System.Data.DataSet
+
+  <span class="c1"># Fill dataset from data adapter, with name &quot;data&quot;</span>
+  <span class="nv">$dataAdapter</span>.Fill<span class="o">(</span><span class="nv">$dataSet</span>, <span class="s2">&quot;data&quot;</span><span class="o">)</span>                                          <span class="nv">$cmd</span>.Dispose<span class="o">()</span>
+
+  <span class="c1"># Returns an array of results</span>
+  <span class="k">return</span> <span class="nv">$dataSet</span>.Tables<span class="o">[</span><span class="s2">&quot;data&quot;</span><span class="o">]</span>
+<span class="o">}</span>
+
+<span class="nv">$query</span> <span class="o">=</span> <span class="s2">&quot;SELECT feld1, feld2 FROM table;&quot;</span>
+<span class="nv">$result</span> <span class="o">=</span> Execute-MySQLQuery <span class="nv">$query</span> <span class="nv">$con</span>
+Write-Host <span class="o">(</span><span class="s2">&quot;Found &quot;</span> + <span class="nv">$result</span>.rows.count + <span class="s2">&quot; rows...&quot;</span><span class="o">)</span>
+<span class="nv">$result</span> <span class="p">|</span> Format-Table
+</pre></div>
+</div>
+<p><strong>ExecuteScalar</strong></p>
+<p>Falls nur die Rückgabe eines einzigen Wertes erwartet wird (count, avg, etc.)
+kann auch mit der <strong>ExecuteScalar</strong> gearbeitet werden.</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="k">function</span> Execute-MySQLScalar<span class="o">(</span><span class="nv">$query</span>, <span class="nv">$con</span><span class="o">)</span>
+<span class="o">{</span>
+    <span class="c1"># Create command object</span>
+    <span class="nv">$cmd</span> <span class="o">=</span> <span class="nv">$con</span>.CreateCommand<span class="o">()</span>
+
+    <span class="c1"># Load query into object</span>
+    <span class="nv">$cmd</span>.CommandText <span class="o">=</span> <span class="nv">$query</span>
+
+    <span class="c1"># Execute command</span>
+    <span class="nv">$cmd</span>.ExecuteScalar<span class="o">()</span>
+<span class="o">}</span>
+
+
+Execute-MSQLScalar <span class="s2">&quot;</span><span class="nv">$select</span><span class="s2"> count(*) from table;&quot;</span> <span class="nv">$con</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="einfugen-andern-loschen-von-daten">
+<h3>Einfügen/Ändern/Löschen von Daten<a class="headerlink" href="#einfugen-andern-loschen-von-daten" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Zum Ändern/Löschen und Einfügen von Daten muss die ExecuteNonQuery()-Methode des Command-Objektes verwendet werden.</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>Function Executebefehl <span class="o">(</span><span class="nv">$String</span><span class="o">)</span>
+<span class="o">{</span>
+        <span class="nv">$con</span> <span class="o">=</span> con_db<span class="p">;</span>
+        <span class="nv">$con</span>.Open<span class="o">()</span><span class="p">;</span>
+
+        <span class="nv">$command</span> <span class="o">=</span> New-Object MySql.Data.MySqlClient.MySqlCommand<span class="p">;</span>
+        <span class="nv">$command</span>.CommandText <span class="o">=</span> <span class="nv">$String</span><span class="p">;</span>
+        <span class="c1">#command muss die connection kennen</span>
+        <span class="nv">$command</span>.Connection <span class="o">=</span> <span class="nv">$con</span><span class="p">;</span>
+        <span class="c1">#ExecuteNonQuery führt den Befehl auf der DB aus und gibt das</span>
+        <span class="nv">$command</span>.ExecuteNonQuery<span class="o">()</span><span class="p">;</span>
+
+        <span class="nv">$con</span>.Close<span class="o">()</span><span class="p">;</span>
+
+
+<span class="o">}</span>
+
+
+<span class="nv">$SQLstring</span> <span class="o">=</span> <span class="s2">&quot;insert into server (BS, SerialNr, CPU_Temp, CPU_Workload, UpTime, HDUsage, Process_Count, Service_Count) values (&#39;&quot;</span> + <span class="nv">$Server</span>.BS + <span class="s2">&quot;&#39;, &#39;&quot;</span> + <span class="nv">$Server</span>.Serial + <span class="s2">&quot;&#39;, &quot;</span>+ <span class="nv">$Server</span>.Temp +<span class="s2">&quot;, &quot;</span>+ <span class="nv">$Server</span>.Workload +<span class="s2">&quot;, &#39;&quot;</span>+ <span class="nv">$Server</span>.uptime +<span class="s2">&quot;&#39;, &#39;&quot;</span>+ <span class="nv">$Server</span>.HD_Use +<span class="s2">&quot;&#39;, &#39;&quot;</span>+ <span class="nv">$Server</span>.Pro_Count +<span class="s2">&quot;&#39;, &#39;&quot;</span>+ <span class="nv">$Server</span>.Ser_Count +<span class="s2">&quot;&#39;); COMMIT&quot;</span><span class="p">;</span>
+<span class="c1">#$SQLstring;</span>
+Executebefehl <span class="nv">$SQLstring</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="exportieren-nach-excel">
+<h2>Exportieren nach Excel<a class="headerlink" href="#exportieren-nach-excel" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Zum Export der jeweiligen Inhalte des DataGrids kann recht elegant ein bekanntes Konzept der Powershell verwendet werden, nämlich das der Pipeline.</p>
+<p>Während ein DataGrid-Objekt zunächst einmal nicht einfach nach Excel exportiert werden kann, ist es der darunter liegenden DataTable des DataSet-Objektes durchaus möglich, seine Inhalte in eine csv-Datei zu speichern.</p>
+<p>Der entsprechende Code in der control.ps1 ist dann nur noch ein Einzeiler:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="k">function</span> exportToExcel
+<span class="o">{</span>
+        <span class="nv">$DataSet</span>.Tables<span class="o">[</span>0<span class="o">]</span> <span class="p">|</span> export-csv c:<span class="se">\t</span>emp<span class="se">\f</span>lam_stein<span class="se">\f</span>ile.csv -notypeinformation -UseCulture
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Stichwortverzeichnis"
+             >Index</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">Dr. Watson und Datenbank 1 Dokumentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2015, STE.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6 erstellt.
+    </div>
+  </body>
+</html>

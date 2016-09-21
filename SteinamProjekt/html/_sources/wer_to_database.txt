@@ -1,0 +1,132 @@
+================================
+WEReports auslesen und speichern
+================================
+
+
+Ausgangssituation
+------------------
+
+
+Ihre Firma hat europaweit ca 2000 Rechner im Einsatz, an denen häufig wechslende Mitarbeiter ihrer Arbeit nachgehen. Ein Mitarbeiter kann dabei durchaus an mehreren Rechnern arbeiten und erzeugt dabei lokale Profile. 
+In letzter Zeit häufen sich die Fehlermeldungen von Nutzern bzw. ihre Monitoring-Software meldet anormale Abstürze der Rechner. Bei ersten oberflächlichen Beobachtungen stellen Sie ein Ansteigen der sog. WER-Reports auf den Maschinen fest. 
+Ihre Firma möchte deshalb die Auswertung von WER-Files verbessern. Diese werden für jeden User in  speziellen Verzeichnissen auf den PCs angelegt und beinhalten Informationen zum Absturzverhalten eines Programms. Ihre Aufgabe besteht darin, diese Informationen zusammenzufassen und für Auswertungen in einer Datenbank zur Verfügung zu stellen. 
+
+Aus den einzelnen Reports interessiert Sie der 
+
+- AppName,
+- Pfad der App, 
+- ReportType, 
+- der Name des verursachenden Benutzers (Name des übergeordneten Ordners), 
+- die jeweilige MAC-Adresse des Rechners (ein User kann auf verschiedenen Rechnern arbeiten)
+- das Datum des Berichts (Datum der Datei)
+
+Nachdem die Daten extrahiert und gespeichert worden sind, können die Dateien in den Ordnern gelöscht werden. Ihr Skript soll periodisch diese verzeichnisse scannen und neue Dateien wiederum bearbeiten.
+
+Die Ergebnisse sollen in einer Datenbank festgehalten werden, mit deren Hilfe man anschließend Auswertungen durchführen kann, z.B.
+
+- Top 5 – Crash-Apps
+- Ausgabe für einen bestimmten User
+- Ausgabe für bestimmte Rechner
+- ...
+
+
+Bisher existierten in Ihrer Firma Powershell-Skripte, die eine Ausgabe verschiedenster Informationen
+der WER-Reports über die Konsole möglich machen. Diese Informationen beziehen sich aber nur auf den jeweiligen Einzel-PC. Eine Aggregation von Informationen über alle Computer ist nicht möglich. Der Leiter der IT-Abteilung beschließt daher, dieses Skript als Ausgangspunkt für eine Erweiterung zu nehmen. Die Daten sollen nun in einer Mysql-Datenbank gespeichert werden und von dort durchsucht werden können und grafisch ausgegeben werden.
+
+Ihre Aufgabe besteht deshlab nicht nur im Neuschreiben der Erfassungssoftware, sondern auch im Schreiben einer entsprechenden Auswertungssoftware.
+
+
+Zur Information erhalten Sie vom IT-Leiter noch das folgende PS-Skript
+
+.. only:: html
+
+	.. sidebar:: Skript
+
+		:download:`Skript <figure/werreports_10.ps1>`
+
+		:download:`Bemerkungen <figure/bemerkungen.docx>`
+
+.. admonition:: Aufgabe
+
+	Analysieren Sie das dargestellte Skript **werreports_10.ps1**. 
+
+.. image:: figure/notiz.png
+	:width: 500px
+
+.. only:: html
+
+		.. sidebar:: Tafelbilder
+
+			:download:`Gebraucht <figure/klasse_11/used_functions.jpg>`
+
+			:download:`getReportData_Ablauf <figure/klasse_11/functionen_ablauf_und_daten_alt.jpg>`
+
+			:download:`ArrayList_Benutzer <figure/klasse_11/BenuterArrayList_Verwendung_by_ref.jpg>`
+
+
+
+
+Umsetzung
+---------
+
+Da Powershell nicht ihre Haussprache und der Umfang des bisherigen Skriptes nicht zu umfangreich ist, beschließen Sie, den Quellcode nicht weiterzuentwickeln, sondern mit Hilfe "Ihrer" Programmiersprache neu zu entwickeln. Sie beschließen als erstes eine Analyse der zu erfassenden Daten sowie deren Zusammenhänge vorzunehmen.
+
+Beispielhafte WER-Reports finden Sie auf ihrem T-Laufwerk im Ordner WER-Demo.
+
+
+
+.. admonition:: Gruppenbildung
+
+	Finden Sie sich in Projektteams zusammen; diese sollten in Abhängigkeit der jeweiligen Programmiersprachenkenntnisse gebildet werden.
+
+
+.. admonition:: Vorbereitende Aufgabenstellung
+
+	- Erstellen Sie sich auf einem öffentlichen Versionsverwaltungsserver (github/bitbucket/visualstudio.com)
+	ein Projekt. 
+	- Sie können notwendige Clientsoftware lokal auf den Rechnern installieren.
+	- Fügen Sie alle Teammitglieder als Entwickler hinzu.
+	- Erstellen Sie auf einem Server ein Dummy-Projekt; checken sie dieses in die Versionsverwaltung ein; lassen sie dieses von den übrigen Teammitgliedern auf ihre lokalen Rechner auszuchecken. 
+
+
+	- Dokumentieren Sie ihre Arbeit indem Sie  Sie alle wichtigen Informationen festhalten; 
+	- Legen Sie das Dokument der Lehrkraft vor und heften Sie es nach Gegenzeichnung in ihre Projektmappe ab 
+
+
+.. admonition:: Aufgabe
+
+	Erstellen Sie ein ER-Modell bzw. Klassendiagramm.
+
+.. image:: figure/notiz.png
+	:width: 500px
+
+
+
+.. only:: html
+
+	.. sidebar:: Klassendiagramm / ERM
+
+		:download:`KD <figure/klasse_11/kd1.png>`
+
+		:download:`SQL <figure/klasse_11/kd1.sql>`
+
+		:download:`PS1 <figure/klasse_11/reduz2_final.ps1>`
+
+		:download:`Vergleich <figure/klasse_11/Vergleich_der_beiden_Skripte.docx>`
+
+
+=================
+Aufgabenstellung
+=================
+
+
+
+
+
+	
+
+
+	
+
+
+

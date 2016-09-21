@@ -1,0 +1,77 @@
+==================================
+Grafische Auswertung von EventLogs
+==================================
+
+
+Ausgangssituation
+-----------------
+
+Fehler werden nicht nur mit Hilfe von WER-Reports abgebildet, sondern sie werden normalerweise in das sog. **Eventlog** eines Rechners geschrieben. Sie sind nach verschiedenen Kategorien sortiert und können mit Hilfe der Ereignisanzeige kontrolliert werden.
+
+.. image:: figure/klasse_12/ereignisanzeige.png
+
+
+Ist-Analyse
+-----------
+
+Die grafische Oberfläche der Ereignisanzeige lässt vielfältige Ansichten zu; eine grafische Darstellung über größere Zeiträume ist allerdings nicht möglich. Hier setzt jetzt der Wunsch des IT-Leiter ein, der gerne wissen möchte, wie häufig ein bestimmter Fehler über einen bestimmten Zeitraum erfolgt.
+
+Ein erstes Mockup (Prototyp) der grafischen Benutzeroberfläche könnte er sich wie folgt vorstellen.
+
+.. image:: figure/klasse_12/mockup_event_gui.png
+
+Im linken Teil der GUI wählt man die gewünschte EventID, den Log-Typ und den Zeitraum aus. Mit dem Klick auf den Button Continue soll im Eventlog überprüft werden, ob für den entsprechenden Event Daten vorhanden sind. Während in einer Detailsicht die Textinformationen angezeit werden, soll in einer grafischen Visualisierung die Anzahl der Ereignisse pro Tag als Liniendiagramm abgebildet werden.
+
+Soll-Analyse
+------------
+
+Bei der Realisierung der Vorgaben stellen sich schnell einige kritische Punkte heraus.
+
+- Wie erstellt man mit Hilfe der Powershell eine grafische Oberfläche
+- Wie erzeugt man die grafischen Daten und integriert sie in die GUI
+- Wie gewinnt man die Daten aus der grafischen Oberfläche heraus
+
+
+GUI-Oberfläche
+~~~~~~~~~~~~~~
+
+Powershell ist in der Lage, die GUI-Frameworks von .NET anzusprechen.
+Ein recht leichtes GUT-Framework ist die WinForm-Library.
+
+
+Das Erstellen der Oberfläche kann in reinem Powershell-Code erfolgen. Da dies allerdings recht fehleranfällig ist, empfiehlt es sich, das Erstellen der Oberfläche über Visual Studio bzw. PrimalForm vorzunehmen. Hierbei ist zu klären, wie auf die von den .NET-Controls geworfenen Ereignisse aus Powershell heraus reagiert werden kann.
+
+
+Datengewinnung und Übergabe
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Für das Herauslesen der Daten kann auf das Commandlet get-eventlog
+
+
+
+
+
+Umsetzung
+---------
+
+GUI
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+Logik
+~~~~~
+
+
+
+Excel
+~~~~~
+
+
+
+Grafische Ausgabe
+~~~~~~~~~~~~~~~~~
+
+
+Fazit
+------

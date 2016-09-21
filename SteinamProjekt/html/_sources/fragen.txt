@@ -1,0 +1,34 @@
+Fragen zu Dr. Watson
+=====================
+
+- Erläutern Sie kurz, was man sich unter den sog. WER-Reports vorzustellen hat.
+
+- Sie wollen mit Powershell auf eine Datenbank (MySQl, Oracle, DB2, ...)  zugreifen. Welche Software müssen sie mindestens vorher installiert haben ?
+
+- Welche Aufgabe hat das Tool PrimalForms beim Erstellen grafischer Benutzeroberflächen in Powershell.
+
+- Warum sollte man GUI-Code vom restlichen Code trennen.
+
+- In einem Powershell-QuellCode sehen Sie folgende Zeilen. Welche Bedeutung haben sie.
+
+  .. code-block:: sh
+  
+  	[reflection.assembly]::loadwithpartialname("System.Windows.Forms") | Out-Null
+  	[reflection.assembly]::loadwithpartialname("System.Drawing") | Out-Null
+
+- Erläutern Sie kurz die Bedeutung der folgenden Objekte aus dem ADO. NET- Datenbankzugriffsmodell:
+
+  - DataReader
+  - SQLDataAdapter
+  - DataSet
+  - SQLCommand
+  
+
+- Wie reagiert man in Powershell auf die Ereignisse, die ein WinForm-Objekt (z.B. ein Button) erzeugt.
+
+
+- Wie bindet man den Datenbanktreiber in ein Powershell-Skript ein ?
+
+- Folgender Quellcode funktioniert nicht wie gewollt. Finden Sie den Fehler.
+
+

@@ -1,0 +1,63 @@
+====================================
+Grafische Auswertung der WER-Reports
+====================================
+
+
+Ausgangssituation
+-----------------
+
+
+
+Ist-Analyse
+-----------
+
+
+
+Soll-Analyse
+------------
+
+Bei der Realisierung der Vorgaben stellen sich schnell einige kritische Punkte heraus.
+
+- Wie erstellt man mit Hilfe der Powershell eine grafische Oberfläche
+- Wie erzeugt man die grafischen Daten und integriert sie in die GUI
+- Wie gewinnt man die Daten aus der grafischen Oberfläche heraus
+
+
+GUI-Oberfläche
+~~~~~~~~~~~~~~
+
+
+
+Datengewinnung und Übergabe
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Für das Herauslesen der Daten kann auf das Commandlet get-eventlog
+
+
+
+
+
+Umsetzung
+---------
+
+GUI
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+Logik
+~~~~~
+
+
+
+Excel
+~~~~~
+
+
+
+Grafische Ausgabe
+~~~~~~~~~~~~~~~~~
+
+
+Fazit
+------

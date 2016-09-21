@@ -1,0 +1,26 @@
+======================
+Continuous integration
+======================
+
+Seit mehreren Jahren steht eine neue Art von Vorgehensmodell im Focus vieler Softwareentwickler, das mit altherkömmlichen Entwickler-Traditionen bricht und sich selbst als
+**agiles Vorgehensmodell** bezeichnet.
+
+Ein Kernelement dieses Modells ist die Vorstellung, dass Software jederzeit automatisch erzeugt, getestet und ausgeliefert werden sollte. Dies wird durch spzezielle Software ermöglicht, die viele manuelle Tätigkeiten des Entwicklers automatisiert.
+
+
+.. only:: html
+
+    .. sidebar:: Lösung
+
+
+        .. image:: figure/prog/ci_ablauf_loesung.png
+            :width: 50 px
+    
+
+Folgende Grafik beschreibt den grundlegenden Ablauf.
+
+.. image:: figure/prog/ci_ablauf.png
+
+.. image:: figure/prog/ci_ablauf_2.png
+
+

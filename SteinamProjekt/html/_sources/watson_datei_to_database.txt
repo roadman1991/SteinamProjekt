@@ -1,0 +1,37 @@
+=================
+Aufgabenstellung
+=================
+
+
+Sie wollen WER-Files  auswerten. Diese werden für jeden User in einem speziellen Verzeichnis angelegt und beinhalten Informationen zum Absturzverhalten eines Programms. Ihre Aufgabe besteht darin, diese Informationen zusammenzufassen und für Auswertungen zur Verfügung zu stellen. 
+
+Aus den einzelnen Reports interessiert Sie der 
+
+- AppName,
+- Pfad der App, 
+- ReportType, 
+- der Name des verursachenden Benutzers (Name des übergeordneten Ordners), 
+- die jeweilige MAC-Adresse des Rechners (ein User kann auf verschiedenen Rechnern arbeiten)
+- das Datum des Berichts (Datum der Datei)
+
+Nachdem die Daten extrahiert worden sind, können die Dateien im Ordner gelöscht werden. Falls weitere Fehler auftreten, werden diese von einem anderen Skript wieder in den Ordner kopiert. Zur Vereinfachung der Aufgabe wird dieser Schritt nicht beachtet.
+
+Zunächst sollen diese Ergebnisse in einer Datenbank festgehalten werden, mit deren Hilfe man später Auswertungen durchführen kann, z.B.
+
+- Top 5 – Crash-Apps
+- Ausgabe für einen bestimmten User
+- Ausgabe für bestimmte Rechner
+- ...
+
+
+.. warning:: Aufgabe
+
+
+	Beispielhafte WER-Reports finden Sie auf ihrem T-Laufwerk im Ordner WER-Demo.
+
+	- Erstellen Sie ein UseCase-Diagramm der bestehenden Situation
+	- Überlegen Sie sich notwenige Klassen/Entitäten
+	
+
+
+

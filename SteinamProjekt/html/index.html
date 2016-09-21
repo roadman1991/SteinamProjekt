@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Dr. Watson goes Datenbank &#8212; Dr. Watson und Datenbank 1 Dokumentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="top" title="Dr. Watson und Datenbank 1 Dokumentation" href="#" />
+    <link rel="next" title="Gedachter Verlauf" href="einstieg.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Stichwortverzeichnis"
+             accesskey="I">Index</a></li>
+        <li class="right" >
+          <a href="einstieg.html" title="Gedachter Verlauf"
+             accesskey="N">weiter</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">Dr. Watson und Datenbank 1 Dokumentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Inhalt</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Dr. Watson goes Datenbank</a><ul>
+<li><a class="reference internal" href="#suche">Suche</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Nächstes Thema</h4>
+  <p class="topless"><a href="einstieg.html"
+                        title="nächstes Kapitel">Gedachter Verlauf</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Diese Seite</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.txt"
+            rel="nofollow">Quellcode anzeigen</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Schnellsuche</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Los" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="dr-watson-goes-datenbank">
+<h1>Dr. Watson goes Datenbank<a class="headerlink" href="#dr-watson-goes-datenbank" title="Link zu dieser Überschrift">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="einstieg.html">Gedachter Verlauf</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="einstieg.html#inhalte-des-unterrichts">Inhalte des Unterrichts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="einstieg.html#vorgeschichte">Vorgeschichte</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="einstieg.html#error-report-dateien-wer">Error Report Dateien *.wer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="einstieg.html#konfiguration-von-windows-error-reporting-wer">Konfiguration von Windows Error Reporting (WER)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="einstieg.html#windows-error-reporting-wer-tools">Windows Error Reporting (WER) Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="einstieg.html#windows-powershell-error-reporting-wer-cmdlets">Windows PowerShell Error Reporting (WER) Cmdlets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="einstieg.html#logfiles-anstatt-wer-dateien-nutzen">Logfiles anstatt *.wer Dateien nutzen</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cont_integration.html">Continuous integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versionsverwaltung.html">Runde 1  &#8211;  Versionsverwaltung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="versionsverwaltung.html#zentrale-versionsverwaltung">Zentrale Versionsverwaltung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versionsverwaltung.html#dezentrale-anarchie">Dezentrale Anarchie</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="wer_to_database.html">WEReports auslesen und speichern</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="wer_to_database.html#ausgangssituation">Ausgangssituation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wer_to_database.html#umsetzung">Umsetzung</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="wer_to_database.html#aufgabenstellung">Aufgabenstellung</a></li>
+</ul>
+</div>
+<div class="section" id="suche">
+<h2>Suche<a class="headerlink" href="#suche" title="Link zu dieser Überschrift">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Suche</span></a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Stichwortverzeichnis"
+             >Index</a></li>
+        <li class="right" >
+          <a href="einstieg.html" title="Gedachter Verlauf"
+             >weiter</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">Dr. Watson und Datenbank 1 Dokumentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2015, STE.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6 erstellt.
+    </div>
+  </body>
+</html>
