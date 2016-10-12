@@ -71,8 +71,9 @@ namespace ConsoleApplication1
         public void WerReader()
         {
         }
-        public void ReadUserName()
+        public string ReadUserName(string werPath)
         {
+            return Path.GetFullPath(Path.Combine(werPath, @"..\..\"));
         }
         public void ReadMac()
         {
@@ -102,12 +103,9 @@ namespace ConsoleApplication1
                 Console.WriteLine(e.Message);
             }
         }
-        public void ReadKeys(/*string key , string variable*/) 
+        public string ReadKeys(string key) 
         {
-            this._appPath = _werFileContent["AppPath"];
-            this._appPath = _werFileContent["AppPath"];
-            this._appPath = _werFileContent["AppPath"];
-            this._appPath = _werFileContent["AppPath"];
+            return _werFileContent[key];
         }
     }
 }
