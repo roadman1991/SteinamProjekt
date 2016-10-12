@@ -18,11 +18,9 @@ namespace ConsoleApplication1
         
         public ParseSQLStatement()
         {
-
         }
 
         public void CreateSqlStatement() { 
         }
-
     }
 }

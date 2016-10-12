@@ -10,7 +10,6 @@ namespace ConsoleApplication1
     class Wer_Reader
     {
         private DateTime _fileDate;
-
         public DateTime FileDate
         {
             get { return _fileDate; }
@@ -18,7 +17,6 @@ namespace ConsoleApplication1
         }
 
         private int _reportType;
-
         public int ReportType
         {
             get { return _reportType; }
@@ -26,7 +24,6 @@ namespace ConsoleApplication1
         }
 
         private string _appName;
-
         public string AppName
         {
             get { return _appName; }
@@ -34,7 +31,6 @@ namespace ConsoleApplication1
         }
 
         private string _appPath;
-
         public string AppPath
         {
             get { return _appPath; }
@@ -42,7 +38,6 @@ namespace ConsoleApplication1
         }
 
         private string _mac;
-
         public string Mac
         {
             get { return _mac; }
@@ -50,7 +45,6 @@ namespace ConsoleApplication1
         }
 
         private string _userName;
-
         public string UserName
         {
             get { return _userName; }
@@ -58,7 +52,6 @@ namespace ConsoleApplication1
         }
 
         private int _reportId;
-
         public int ReportId
         {
             get { return _reportId; }
@@ -66,7 +59,6 @@ namespace ConsoleApplication1
         }
 
         private string _werPath;
-
         public string WerPath
         {
             get { return _werPath; }
@@ -76,53 +68,31 @@ namespace ConsoleApplication1
         Dictionary<string, string> _werFileContent =
         new Dictionary<string, string>();
 
-        //List<string> _werFileContent = new List<string>();
-
-        //private string _werFileContent;
-
-        //public string WerFileContent
-        //{
-        //    get { return _werFileContent; }
-        //    set { _werFileContent = value; }
-        //}
-
-
-
-
-
         public void WerReader()
         {
         }
-
         public void ReadUserName()
         {
         }
-
         public void ReadMac()
         {
         }
-
         public void ReadWer(string Path)
         {
             try
             {
-                // Open the WerFile using stream reader.
                 using (StreamReader sr = new StreamReader(Path))
                 {
-
                     string _line;
                     while ((_line = sr.ReadLine()) != null)
                     {
+                        _line = _line.Replace("\0", "");
                         string[] keyvalue = _line.Split('=');
                         if (keyvalue.Length == 2)
                         {
                             _werFileContent.Add(keyvalue[0], keyvalue[1]);
                         }
                     }
-
-                    //_werFileContent = sr.ReadToEnd();
-                    //Console.WriteLine(_werFileContent);
-                    
                 }
                 _werFileContent.ToList().ForEach(x => Console.WriteLine(x.Key + "=" + x.Value));
             }
@@ -132,6 +102,12 @@ namespace ConsoleApplication1
                 Console.WriteLine(e.Message);
             }
         }
-
+        public void ReadKeys(/*string key , string variable*/) 
+        {
+            this._appPath = _werFileContent["AppPath"];
+            this._appPath = _werFileContent["AppPath"];
+            this._appPath = _werFileContent["AppPath"];
+            this._appPath = _werFileContent["AppPath"];
+        }
     }
 }
