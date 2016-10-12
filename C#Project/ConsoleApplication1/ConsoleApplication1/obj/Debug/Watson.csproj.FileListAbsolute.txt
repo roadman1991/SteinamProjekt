@@ -16,3 +16,9 @@ C:\Users\m.schlossnagel\Desktop\SteinamProjekt\C#Project\ConsoleApplication1\Con
 C:\Users\m.schlossnagel\Desktop\SteinamProjekt\C#Project\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
 C:\Users\m.schlossnagel\Desktop\SteinamProjekt\C#Project\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
 C:\Users\m.schlossnagel\Desktop\SteinamProjekt\C#Project\ConsoleApplication1\ConsoleApplication1\obj\Debug\Watson.csprojResolveAssemblyReference.cache
+C:\Users\f.schwarzer\Desktop\SteinamProjekt-master\C#Project\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+C:\Users\f.schwarzer\Desktop\SteinamProjekt-master\C#Project\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Users\f.schwarzer\Desktop\SteinamProjekt-master\C#Project\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+C:\Users\f.schwarzer\Desktop\SteinamProjekt-master\C#Project\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\f.schwarzer\Desktop\SteinamProjekt-master\C#Project\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\f.schwarzer\Desktop\SteinamProjekt-master\C#Project\ConsoleApplication1\ConsoleApplication1\obj\Debug\Watson.csprojResolveAssemblyReference.cache

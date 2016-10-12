@@ -118,5 +118,10 @@ namespace ConsoleApplication1
         {
             return _werFileContent[key];
         }
+
+        public DateTime GetFileCreationDate(string WerFilePath) 
+        {
+            return File.GetCreationTime(WerFilePath);
+        }
     }
 }
