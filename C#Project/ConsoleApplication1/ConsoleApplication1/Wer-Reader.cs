@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net.NetworkInformation;
 
 namespace ConsoleApplication1
 {
@@ -75,9 +76,19 @@ namespace ConsoleApplication1
         {
             return Path.GetFullPath(Path.Combine(werPath, @"..\..\"));
         }
-        public void ReadMac()
+
+        public string ReadMac()
         {
+            string macAddr =
+            (
+                from nic in NetworkInterface.GetAllNetworkInterfaces()
+                where nic.OperationalStatus == OperationalStatus.Up
+                select nic.GetPhysicalAddress().ToString()
+            ).FirstOrDefault();
+
+            return macAddr;
         }
+
         public void ReadWer(string Path)
         {
             try
