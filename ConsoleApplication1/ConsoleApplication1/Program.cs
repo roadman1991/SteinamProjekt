@@ -17,6 +17,7 @@ namespace ConsoleApplication1
             wer.AppName = wer.ReadKeys("AppName");
             wer.ReportType = int.Parse(wer.ReadKeys("ReportType"));
             wer.UserName = wer.ReadUserName(wer.WerPath);
+            wer.Mac = wer.ReadMac();
             Console.ReadLine();
         }
     }
