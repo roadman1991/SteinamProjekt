@@ -74,7 +74,8 @@ namespace ConsoleApplication1
         }
         public string ReadUserName(string werPath)
         {
-            return Path.GetFullPath(Path.Combine(werPath, @"..\..\"));
+            string _newPath = Path.GetFullPath(Path.Combine(werPath, @"..\..\"));
+            return Path.GetFileName(Path.GetDirectoryName(_newPath));
         }
 
         public string ReadMac()
