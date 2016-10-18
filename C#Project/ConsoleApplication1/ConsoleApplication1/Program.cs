@@ -11,7 +11,7 @@ namespace ConsoleApplication1
         static void Main(string[] args)
         {
             Wer_Reader wer = new Wer_Reader();
-            wer.WerPath = @"C:\Users\f.schwarzer\Desktop\SteinamProjekt-master\SteinamProjekt\Guenther\AppCrash_AD2F1837.HPPrint_5f3be62d972dbae282e3eb41d381fa33e129b39f_9a4a8176_18f7b9a3\Report.wer";
+            wer.WerPath = @"H:\AWP Steinam\SteinamProjekt\Guenther\AppCrash_AD2F1837.HPPrint_7abab9a238d31ce95943fa32488e7ff1e0ef441f_8eaf7b11_0efc9e31\Report.wer";
             wer.ReadWer(wer.WerPath);
             wer.AppPath = wer.ReadKeys("AppPath");
             wer.AppName = wer.ReadKeys("AppName");
@@ -20,6 +20,9 @@ namespace ConsoleApplication1
             wer.Mac = wer.ReadMac();
             wer.FileDate = wer.GetFileCreationDate(wer.WerPath);
             Console.ReadLine();
+
+            SQLConnection connect = new SQLConnection();
+            connect.insertData(wer);
         }
     }
 }
