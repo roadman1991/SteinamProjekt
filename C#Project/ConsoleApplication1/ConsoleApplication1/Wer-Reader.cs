@@ -51,14 +51,6 @@ namespace ConsoleApplication1
             get { return _userName; }
             set { _userName = value; }
         }
-
-        private int _reportId;
-        public int ReportId
-        {
-            get { return _reportId; }
-            set { _reportId = value; }
-        }
-
         private string _werPath;
         public string WerPath
         {
@@ -72,12 +64,11 @@ namespace ConsoleApplication1
         public void WerReader()
         {
         }
-        public string ReadUserName(string werPath)
+        public string ReadUserName(string UserFolderPath)
         {
-            string _newPath = Path.GetFullPath(Path.Combine(werPath, @"..\..\"));
+            string _newPath = Path.GetFullPath(Path.Combine(UserFolderPath, @"..\..\"));
             return Path.GetFileName(Path.GetDirectoryName(_newPath));
         }
-
         public string ReadMac()
         {
             string macAddr =
@@ -89,7 +80,6 @@ namespace ConsoleApplication1
 
             return macAddr;
         }
-
         public void ReadWer(string Path)
         {
             try
@@ -115,12 +105,11 @@ namespace ConsoleApplication1
                 Console.WriteLine(e.Message);
             }
         }
-        public string ReadKeys(string key) 
+        public string ReadKeys(string key)
         {
             return _werFileContent[key];
         }
-
-        public DateTime GetFileCreationDate(string WerFilePath) 
+        public DateTime GetFileCreationDate(string WerFilePath)
         {
             return File.GetCreationTime(WerFilePath);
         }

@@ -43,6 +43,10 @@ namespace ConsoleApplication1
 
             string appname = w.AppName;
 
+
+            //("SELECT AppID FROM appname WHERE Appname ='" + appname + "';", con);
+
+
             MySqlCommand command = new MySqlCommand("SELECT COUNT(Appname) FROM appname WHERE Appname ='" + appname + "';", con);
             command.Connection = con;
 
