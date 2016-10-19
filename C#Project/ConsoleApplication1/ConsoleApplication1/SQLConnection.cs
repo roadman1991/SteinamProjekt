@@ -12,23 +12,27 @@ namespace ConsoleApplication1
     {
         MySqlConnection con;
 
+
+        public SQLConnection()
+        {
+
+            con = new MySqlConnection("user id=root;server=localhost;password=;database=watson_11fi1_ssg");
+        }
+
+
         private void openConnection()
         {
             try
             {
-                using (con = new MySqlConnection("user id=root;server=localhost;password=;database=watson_11fi1_ssg"))
+                if (con.State == ConnectionState.Closed)
                 {
-                    /*con.ConnectionString = "Data Source=(local);" +
-                                           "Initial Catalog=watson_11fi1_ssg;" +
-                                           "User ID=root;" +
-                                           "Integrated Security=false";*/
+                    
                     con.Open();
-                    if (con.State == ConnectionState.Closed)
-                    {
-                        Console.WriteLine("Closed");
-                        con.Close();
-                    }
                 }
+               
+
+              
+                
             }
             catch (Exception e)
             {
@@ -41,7 +45,10 @@ namespace ConsoleApplication1
         public void insertData(Wer_Reader w)
         {
 
-        // openConnection();
+            // int success = 0; //kein Erfolg
+            
+            
+            openConnection();
 
             
 
@@ -49,20 +56,28 @@ namespace ConsoleApplication1
 
             MySqlCommand command = new MySqlCommand("SELECT COUNT(Appname) FROM appname WHERE Appname ='"+appname+"'", con);
             command.Connection = con;
-            object count = command.ExecuteScalar();
 
-            if (count.ToString() == "1")
+
+            try
             {
 
+                object count = command.ExecuteScalar();
+
+                if (count.ToString() == "1")
+                {
+
+                }
             }
-
-           // MySqlDataReader readCom = command.ExecuteReader();
-
-
-
-            con.Close();
-
-            //bist du schon in tabelle appname
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw (e);
+            }
+           
+            finally
+                {
+                    con.Close();
+                }
 
         }
 

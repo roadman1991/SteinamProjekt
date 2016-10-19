@@ -29,3 +29,4 @@ C:\Users\a.geuss\Desktop\SteinamProjekt\C#Project\ConsoleApplication1\ConsoleApp
 C:\Users\a.geuss\Desktop\SteinamProjekt\C#Project\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
 C:\Users\a.geuss\Desktop\SteinamProjekt\C#Project\ConsoleApplication1\ConsoleApplication1\obj\Debug\Watson.csprojResolveAssemblyReference.cache
 C:\Users\a.geuss\Desktop\SteinamProjekt\C#Project\ConsoleApplication1\ConsoleApplication1\bin\Debug\MySql.Data.dll
+C:\Users\m.schlossnagel\Desktop\SteinamProjekt\C#Project\ConsoleApplication1\ConsoleApplication1\bin\Debug\MySql.Data.dll
